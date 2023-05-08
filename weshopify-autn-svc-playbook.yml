@@ -1,4 +1,4 @@
-- name: weshopify-svc-registry-playbook
+- name: weshopify-authn-svc-playbook
   hosts: docker-host
   become: 'yes'
   become_user: docker-admin
