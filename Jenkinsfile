@@ -31,7 +31,7 @@ pipeline{
         stage("Deploy to Artifactory"){
             steps{
                 echo "========Deploying to Artifactory Started========"
-                sh 'mvn deploy'
+                sh 'mvn deploy -DskipTests=true'
                 echo "========Artifact Deploy is Completed========"
             }
         }
