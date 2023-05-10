@@ -84,10 +84,10 @@
 		</plugins>
 	</build>
 	<distributionManagement>
-    		<snapshotRepository>
-        	<id>snapshots</id>
-        	<name>ip-172-31-3-61.ap-south-1.compute.internal-snapshots</name>
-        	<url>http://15.207.64.68:8081/artifactory/libs-snapshot-local</url>
-    		</snapshotRepository>
-	</distributionManagement>
+                  <snapshotRepository>
+                     <id>snapshots</id>
+                     <name>ip-172-31-1-97.ap-south-1.compute.internal-snapshots</name>
+                     <url>http://3.111.21.82:8081/artifactory/libs-snapshot-local</url>
+                  </snapshotRepository>
+        </distributionManagement>
 </project>
