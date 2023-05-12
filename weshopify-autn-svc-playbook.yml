@@ -10,10 +10,10 @@
      shell: mkdir app-dir/target && chmod 777 app-dir/target
 
    - name: copy the jfrog file from ansible to docker
-     copy: src=/opt/ci-cd-files/jfrog.sh dest=app-dir
+     copy: src=/opt/weshopify-authn-svc/jfrog.sh dest=app-dir
 
    - name: copy the Dockerfile Dockerserver
-     copy: src=/opt/ci-cd-files/Dockerfile dest=app-dir
+     copy: src=/opt/weshopify-authn-svc/Dockerfile dest=app-dir
     
    - name: download the artifact from artifactory
      shell: chmod 777 ./app-dir/jfrog.sh && sh ./app-dir/jfrog.sh
@@ -30,5 +30,5 @@
    - name: remove the image locally
      shell: echo admin | sudo -S docker rmi narsimybooks/weshopify-authn-service-img
    
-  # - name: remove the app-dir
-   #  shell: rm -rf app-dir
+   - name: remove the app-dir
+     shell: rm -rf app-dir
