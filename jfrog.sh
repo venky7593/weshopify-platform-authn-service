@@ -1,12 +1,11 @@
 # http://15.207.64.68:8082/artifactory/libs-snapshot-local/
-#com/durgasoft/weshopify-platform-services-registry/
 ARTIFACT_SERVER_URL=http://15.207.64.68:8082/artifactory
 ARTIFACT_REPO_NAME=libs-snapshot-local
-ARTIFACT_LOC=com/durgasoft/weshopify-platform-services-registry
+ARTIFACT_LOC=com/durgasoft/weshopify-authn-service/
 ARTIFACT_VERSION=0.0.1-SNAPSHOT
 
 #http://15.207.64.68:8082/artifactory/libs-snapshot-local/
-#com/durgasoft/weshopify-platform-services-registry/0.0.1-SNAPSHOT
+#com/durgasoft/weshopify-authn-service/
 ARTIFACT_REPO_URL=$ARTIFACT_SERVER_URL/$ARTIFACT_REPO_NAME/$ARTIFACT_LOC/$ARTIFACT_VERSION
 ARTIFACT_META_XML=maven-metadata.xml
 ARTIFACT_META_XML_URL=$ARTIFACT_REPO_URL/$ARTIFACT_META_XML
@@ -20,7 +19,7 @@ ARTIFACT_VERSION_WITH_TIME_STAMP=$(curl -u $ARTIFACTORY_USER:$ARTIFACTORY_PASSWO
 echo 'ARTIFACT_VERSION_WITH_TIME_STAMP' $ARTIFACT_VERSION_WITH_TIME_STAMP
 #http://15.207.64.68:8082/artifactory
 #libs-snapshot-local
-#com/durgasoft/weshopify-platform-services-registry
+#com/durgasoft/weshopify-authn-service/
 #0.0.1-SNAPSHOT/
 #weshopify-platform-services-registry-
 #0.0.1-20230415.034533-10.jar
