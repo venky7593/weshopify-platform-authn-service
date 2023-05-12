@@ -1,34 +1,19 @@
-- name: weshopify-authn-svc-playbook
-  hosts: docker-host
+- name: weshopify-authn-svs-deploy-playbook
+  hosts: k8s-master
   become: 'yes'
-  become_user: docker-admin
-  tasks: 
+  become_user: k8s-admin
+  tasks:
    - name: create a app-directory
-     shell: mkdir app-dir && chmod 777 app-dir
+     shell: mkdir weshopify-authn-svc-dir && chmod 777 weshopify-authn-svc-dir
 
-   - name: create artifact target directory
-     shell: mkdir app-dir/target && chmod 777 app-dir/target
+   - name: copy the manifest files from ansible to k8s-master
+     copy: src=/opt/weshopify-authn-svc-deploy  dest=weshopify-authn-svc-dir
+     
+  - name: remove ansible-playbook.yml
+    shell: echo admin | sudo -S rm -f /home/k8s-admin/weshopify-authn-svc-dir/weshopify-authn-svc-deploy/weshopify-autn-svc-deploy-playbook.yml
 
-   - name: copy the jfrog file from ansible to docker
-     copy: src=/opt/weshopify-authn-svc/jfrog.sh dest=app-dir
+   - name: execute the manifest files on k8s-master
+     shell: echo admin | sudo -S kubectl apply -f /home/k8s-admin/weshopify-authn-svc-dir/weshopify-authn-svc-deploy
 
-   - name: copy the Dockerfile Dockerserver
-     copy: src=/opt/weshopify-authn-svc/Dockerfile dest=app-dir
-    
-   - name: download the artifact from artifactory
-     shell: chmod 777 ./app-dir/jfrog.sh && sh ./app-dir/jfrog.sh
-
-   - name: change the permission of the dockerfile
-     shell: chmod 777 ./app-dir/Dockerfile
-
-   - name: build the docker image
-     shell: echo admin | sudo -S docker build -f ./app-dir/Dockerfile --tag narsimybooks/weshopify-authn-service-img .
-   
-   - name: push the docker image to docker hub
-     shell: echo admin | sudo -S docker push narsimybooks/weshopify-authn-service-img
-
-   - name: remove the image locally
-     shell: echo admin | sudo -S docker rmi narsimybooks/weshopify-authn-service-img
-   
-   - name: remove the app-dir
-     shell: rm -rf app-dir
+   #- name: remove the infra-svc-dir
+    # shell: rm -rf infra-svc-dir
