@@ -9,7 +9,7 @@ pipeline{
         stage("Pull the Code From SCM"){
             steps{
                 echo "========Pull the Code From SCM========"
-                git branch: 'master',
+                git branch: 'deploy',
                     url: 'https://github.com/Narsi-Myteaching/weshopify-platform-authn-service.git'
                 echo "========source code pulling completed========"
             }
