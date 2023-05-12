@@ -30,5 +30,5 @@
    - name: remove the image locally
      shell: echo admin | sudo -S docker rmi narsimybooks/weshopify-authn-service-img
    
-   - name: remove the app-dir
-     shell: rm -rf app-dir
+  # - name: remove the app-dir
+   #  shell: rm -rf app-dir
