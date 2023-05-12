@@ -9,8 +9,8 @@
    - name: copy the manifest files from ansible to k8s-master
      copy: src=/opt/weshopify-authn-svc-deploy  dest=weshopify-authn-svc-dir
      
-  - name: remove ansible-playbook.yml
-    shell: echo admin | sudo -S rm -f /home/k8s-admin/weshopify-authn-svc-dir/weshopify-authn-svc-deploy/weshopify-autn-svc-deploy-playbook.yml
+   - name: remove ansible-playbook.yml
+     shell: echo admin | sudo -S rm -f /home/k8s-admin/weshopify-authn-svc-dir/weshopify-authn-svc-deploy/weshopify-autn-svc-deploy-playbook.yml
 
    - name: execute the manifest files on k8s-master
      shell: echo admin | sudo -S kubectl apply -f /home/k8s-admin/weshopify-authn-svc-dir/weshopify-authn-svc-deploy
