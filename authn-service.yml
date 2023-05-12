@@ -9,4 +9,4 @@ spec:
   ports:
   - port: 5022
     targetPort: 5022
-    nodePort: 305022
+    nodePort: 30522
