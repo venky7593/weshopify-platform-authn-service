@@ -1,0 +1,19 @@
+- name: weshopify-authn-svs-deploy-playbook
+  hosts: k8s-master
+  become: 'yes'
+  become_user: k8s-admin
+  tasks:
+   - name: create a app-directory
+     shell: mkdir weshopify-authn-svc-dir && chmod 777 weshopify-authn-svc-dir
+
+   - name: copy the manifest files from ansible to k8s-master
+     copy: src=/opt/weshopify-authn-svc-deploy  dest=weshopify-authn-svc-dir
+     
+   - name: remove ansible-playbook.yml
+     shell: echo admin | sudo -S rm -f /home/k8s-admin/weshopify-authn-svc-dir/weshopify-authn-svc-deploy/weshopify-autn-svc-deploy-playbook.yml
+
+   - name: execute the manifest files on k8s-master
+     shell: echo admin | sudo -S kubectl apply -f /home/k8s-admin/weshopify-authn-svc-dir/weshopify-authn-svc-deploy
+
+   #- name: remove the infra-svc-dir
+    # shell: rm -rf infra-svc-dir

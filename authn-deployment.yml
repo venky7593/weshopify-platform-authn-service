@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weshopify-authn
+spec:
+  selector:
+    matchLabels:
+      app: weshopify-authn
+  template:
+    metadata:
+      labels:
+        app: weshopify-authn
+    spec:
+      containers:
+      - name: weshopify-authn
+        image: narsimybooks/weshopify-authn-service-img
+        ports:
+        - containerPort: 5022
+        env:
+          - name: REDIS_SERVER_HOST
+            value: weshopify-cache-svc
+          - name: REDIS_SERVER_PORT
+            value: '6379'
+          - name: REDIS_SERVER_PASSWORD
+            value: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
