@@ -1,5 +1,5 @@
 # http://15.207.64.68:8082/artifactory/libs-snapshot-local/
-ARTIFACT_SERVER_URL=http://15.207.64.68:8082/artifactory
+ARTIFACT_SERVER_URL=http://3.111.21.82:8082/artifactory
 ARTIFACT_REPO_NAME=libs-snapshot-local
 ARTIFACT_LOC=com/durgasoft/weshopify-authn-service/
 ARTIFACT_VERSION=0.0.1-SNAPSHOT
@@ -11,7 +11,7 @@ ARTIFACT_META_XML=maven-metadata.xml
 ARTIFACT_META_XML_URL=$ARTIFACT_REPO_URL/$ARTIFACT_META_XML
 
 ARTIFACTORY_USER=admin
-ARTIFACTORY_PASSWORD=Adance123$
+ARTIFACTORY_PASSWORD=Admin@123
 ARTIFACT_NAME=weshopify-authn-service
 ARTIFACTORY_ARTIFACT_NAME=weshopify-authn-service
 
